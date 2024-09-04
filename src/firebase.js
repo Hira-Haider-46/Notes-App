@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC4IWRF6yvnPymjnBGb6XrUBwHAvRUS9HE",
+  apiKey: import.meta.env.FIREBASE_API_KEY,
   authDomain: "notes-app-f3d21.firebaseapp.com",
   projectId: "notes-app-f3d21",
   storageBucket: "notes-app-f3d21.appspot.com",
@@ -15,3 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
+export const notesCollection = collection(db, "notes")
